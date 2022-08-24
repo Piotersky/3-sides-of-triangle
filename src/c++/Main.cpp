@@ -14,236 +14,200 @@ using std::cin;
 float a;
 float b;
 float c;
-float opcja;
+float option;
 
-void pytania() {
+void values() {
 
-    cout << "Wprowadz dlugosc boku a: ";
+    cout << "Enter side a length: ";
 
     cin >> a;
 
-    cout << "Wprowadz dlugosc boku b: ";
+    cout << "Side b length: ";
 
     cin >> b;
 
-    cout << "Wprowadz dlugosc boku c: ";
+    cout << "Side b length: ";
 
     cin >> c;
 
-    cout << "\nCo chcesz policzyc? \n\n";
-    cout << "1 - Jaki jest to trojkat + katy jezeli jest pitagorejski\n";
-    cout << "2 - Katy\n";
-    cout << "3 - Pole + wysokosc\n";
-    cout << "4 - Obwod\n";
-    cout << "5 - Wygeneruj trojkat wraz z wszystkimi danymi\n\n";
+    cout << "\nWhat would you like to calculate? \n\n";
+    cout << "1 - Type of triangle\n";
+    cout << "2 - Angles\n";
+    cout << "3 - Area + height\n";
+    cout << "4 - Circuit\n";
+    cout << "5 - Generate the triangle with all data\n\n";
 
-    cin >> opcja;
+    cin >> option;
 }
 
-void liczenie() {
+void calculate() {
 
-    cout << "\nLiczenie...\n\n";
+    cout << "\nCalculating...\n\n";
 
     if (a + b <= c || b + c <= a || a + c <= b) {
-        cout << "Taki trojkat nie istnieje! \n";
+        cout << "This triangle not exist! \n";
 
         cout.flush();
         Sleep(5000);
 
-        pytania();
+        return;
     }
 
-    if (opcja == 1) {
+    if (option == 1) {
 
-        char prze = 'A';
+        char hypo = 'A';
 
-        bool pit = false;
+        bool pyt = false;
 
         if (a > b && a > c) {
-            prze = 'a';
+            hypo = 'a';
         }
 
         if (b > c && b > a) {
-            prze = 'b';
+            hypo = 'b';
         }
 
         if (c > b && c > a) {
-            prze = 'c';
+            hypo = 'c';
         }
 
-        if (prze == 'a') {
+        if (hypo == 'a') {
 
             if (pow(c, 2) + pow(b, 2) == pow(a, 2)) {
 
-                pit = true;
+                pyt = true;
             }
         }
 
-        if (prze == 'b') {
+        if (hypo == 'b') {
 
             if (pow(c, 2) + pow(a, 2) == pow(b, 2)) {
 
-                pit = true;
+                pyt = true;
             }
         }
 
-        if (prze == 'c') {
+        if (hypo == 'c') {
 
             if (pow(a, 2) + pow(b, 2) == pow(c, 2)) {
 
-                pit = true;
+                pyt = true;
             }
         }
 
         if (a == b && a == c) {
-            cout << "Jest to trojkat rownoboczny!";
+            cout << "This is equilateral triangle!";
         }
         if (b == a && b == c) {
-            cout << "Jest to trojkat rownoboczny!";
+            cout << "This is equilateral triangle!";
         }
         if (c == a && c == b) {
-            cout << "Jest to trojkat rownoboczny!";
+            cout << "This is equilateral triangle!";
         }
-        if (a != b && a != c && b != c && pit != true) {
-            cout << "Jest to trojkat roznoboczny! \n";
+        if (a != b && a != c && b != c && pyt != true) {
+            cout << "This is scalene triangle! \n";
         }
-        if (pit == true) {
+        if (pyt == true) {
 
-            //int odp;
-
-            cout << "Jest to trojkat pitagorejski \n";
-            /*cout << "Chcesz policzyc katy tego trojkata? \n";
-            cout << "1 - Tak \n";
-            cout << "2 - Nie \n";
-
-            cin >> odp;
-
-            if (odp == 1) {
-
-                float K1;
-
-                float Kat1 = pow(c, 2) - pow(a, 2) - pow(b, 2);
-
-                K1 = acos(Kat1);
-
-                cout << "Katy tego trojkata to:" << "90, " << 180 - K1 - 90 << ", " << K1 << std::endl;
-
-                cout.flush();
-                Sleep(5000);
-
-                pytania();
-            }
-
-            if (odp == 2) {
-                pytania();
-            }
-
-            if (opcja != 1 && opcja != 2) {
-                cout << "BLAD! \n Podaj liczbe 1 lub 2 \n";
-
-                cout.flush();
-                Sleep(3000);
-
-                pytania();
-            }*/
+            cout << "This is Pythagorean triangle \n";
         }
 
         if (a == b && a != c && b != c) {
-            cout << "Jest to trojkat rownoramienny!";
+            cout << "This is isosceles triangle!";
         }
 
         if (a != b && b == c && c != a) {
-            cout << "Jest to trojkat rownoramienny!";
+            cout << "This is isosceles triangle!";
         }
 
         if (a == c && c != b && a != b) {
-            cout << "Jest to trojkat rownoramienny!";
+            cout << "This is isosceles triangle!";
         }
 
         cout.flush();
         Sleep(5000);
 
-        pytania();
+        return;
     }
 
-    if (opcja == 3) {
+    if (option == 2) {
 
-        float K1, K2;
+        float A1, A2;
 
-        float Kat1 = pow(c, 2) - pow(a, 2) - pow(b, 2);
-        float Kat2 = pow(c, 2) - pow(a, 2) - pow(b, 2);
+        float Angle1 = pow(c, 2) - pow(a, 2) - pow(b, 2);
+        float Angle2 = pow(c, 2) - pow(a, 2) - pow(b, 2);
 
-        K1 = acos(Kat1);
+        A1 = acos(Angle1);
 
-        K2 = acos(Kat2);
+        A2 = acos(Angle2);
 
-        cout << "Katy tego trojkata to:" << K1 << ", " << K2 << ", " << 180 - K1 - K2 << std::endl;
+        cout << "Angles of this triangle are:" << A1 << ", " << A2 << ", " << 180 - A1 - A2 << std::endl;
 
         cout.flush();
         Sleep(5000);
 
-        pytania();
+        return;
     }
 
-    if (opcja == 3) {
+    if (option == 3) {
 
-        float Pole;
+        float Area;
 
         float h;
 
-        //Wzór Herona
+        //Heron's formula
 
         float p = a + b + c / 2;
 
-        Pole = sqrt(p * (p - a) * (p - b) * (p - c));
+        Area = sqrt(p * (p - a) * (p - b) * (p - c));
 
-        h = (Pole * 2) / a;
+        h = (Area * 2) / a;
 
-        cout << "Wysokosc: " << h << "\n";
+        cout << "Height: " << h << "\n";
 
-        cout << "Pole: " << Pole << "\n";
-
-        cout.flush();
-        Sleep(5000);
-
-        pytania();
-    }
-
-    if (opcja == 4) {
-
-        float O;
-
-        O = a + b + c;
-
-        cout << "Obwod: " << O << "\n";
+        cout << "Area: " << Area << "\n";
 
         cout.flush();
         Sleep(5000);
 
-        pytania();
+        return;
     }
 
-    if (opcja == 5) {
+    if (option == 4) {
 
-        char prze = 'd';
+        float C;
 
-        //Trójk¹t
+        C = a + b + c;
+
+        cout << "Circuit: " << C << "\n";
+
+        cout.flush();
+        Sleep(5000);
+
+        return;
+    }
+
+    if (option == 5) {
+
+        char hypo = 'd';
+
+        //Type
 
         float T = -1;
 
         if (a > b && a > c) {
-            prze = 'a';
+            hypo = 'a';
         }
 
         if (b > c && b > a) {
-            prze = 'b';
+            hypo = 'b';
         }
 
         if (c > b && c > a) {
-            prze = 'c';
+            hypo = 'c';
         }
 
-        if (prze == 'a') {
+        if (hypo == 'a') {
 
             if (pow(c, 2) + pow(b, 2) == pow(a, 2)) {
 
@@ -251,7 +215,7 @@ void liczenie() {
             }
         }
 
-        if (prze == 'b') {
+        if (hypo == 'b') {
 
             if (pow(c, 2) + pow(a, 2) == pow(b, 2)) {
 
@@ -259,7 +223,7 @@ void liczenie() {
             }
         }
 
-        if (prze == 'c') {
+        if (hypo == 'c') {
 
             if (pow(a, 2) + pow(b, 2) == pow(c, 2)) {
 
@@ -289,75 +253,74 @@ void liczenie() {
             T = 2;
         }
 
-        //K¹ty
+        //Angles
 
-        float K1, K2;
+        float A1, A2;
 
-        float Kat1 = pow(c, 2) - pow(a, 2) - pow(b, 2);
-        float Kat2 = pow(c, 2) - pow(a, 2) - pow(b, 2);
+        float Angle1 = pow(c, 2) - pow(a, 2) - pow(b, 2);
+        float Angle2 = pow(c, 2) - pow(a, 2) - pow(b, 2);
 
-        K1 = acos(Kat1);
+        A1 = acos(Angle1);
 
-        K2 = acos(Kat2);
+        A2 = acos(Angle2);
 
-        //Pole
+        //Area
 
-        float Pole;
+        float Area;
 
-        /*Wzór Herona*/
+        /*Heron's formula*/
 
         float p = a + b + c / 2;
 
-        Pole = sqrt(p * (p - a) * (p - b) * (p - c));
+        Area = sqrt(p * (p - a) * (p - b) * (p - c));
 
-        //Wyskoœæ
+        //Height
 
         float h;
 
-        h = (Pole * 2) / a;
+        h = (Area * 2) / a;
 
-        //Obwód
+        //Circuit
 
-        float O;
+        float C;
 
-        O = a + b + c;
+        C = a + b + c;
 
-        cout << "Generowanie trojkata... \n\nTo moze zajac chwile \n\n";
+        cout << "Generating triangle... \n\nIt will be take a moment \n\n";
 
-        SaveData(a, b, c, h, Pole, O, K1, K2, T);
+        SaveData(a, b, c, h, Area, C, A1, A2, T);
 
         cout.flush();
         Sleep(2000);
 
-        system("Wizualizacja.exe");
+        system("Visualisation.exe");
 
-        cout << "Okno powinno sie pojawic automatycznie, jesli go nie widzisz, to wlacz je przez pasek zadan \nKiedy bedziesz chcial/a wygenerowac nastepny trojkat zamknij tamto okienko i od nowa podaj dlugosci bokow\n\n";
+        cout << "Window will show automatically.\nWhen you want to generate the next triangle, close that window and enter the side lengths again\n\n";
 
-        pytania();
+        values();
     }
 
-    if (opcja != 1 && opcja != 2 && opcja != 3 && opcja != 4 && opcja != 5) {
-        cout << "BLAD! \n Podaj liczbe 1, 2, 3, 4 lub 5\n";
+    if (option != 1 && option != 2 && option != 3 && option != 4 && option != 5) {
+        cout << "ERROR! \n Enter those intigers 1, 2, 3, 4 or 5\n";
 
         cout.flush();
         Sleep(3000);
 
-        pytania();
+        return;
     }
 }
 
 int main() {
-    pytania();
-    liczenie();
-    pytania();
-    liczenie();
-    pytania();
-    liczenie();
-    pytania();
-    liczenie();
-    pytania();
-    liczenie();
-
+    values();
+    calculate();
+    values();
+    calculate();
+    values();
+    calculate();
+    values();
+    calculate();
+    values();
+    calculate();
 
     system("pause>0");
 }

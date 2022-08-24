@@ -1,13 +1,12 @@
 #include "SaveData.h"
 
 #include <iostream>
-
-using std::ofstream;
-
 #include <fstream>
 #include <cstdlib>
 
-void SaveData(float a, float b, float c, float h, float Pole, float O, float k1, float k2, int T) {
+using std::ofstream;
+
+void SaveData(float a, float b, float c, float h, float Area, float C, float a1, float a2, int T) {
 
 	ofstream file("data/a.txt");
 	file << "let a = " << a << ";";
@@ -25,23 +24,23 @@ void SaveData(float a, float b, float c, float h, float Pole, float O, float k1,
 	file3 << "let h = " << h << ";";
 	file3.close();
 
-	ofstream file4("data/p.txt");
-	file4 << "let p = " << Pole << ";";
+	ofstream file4("data/area.txt");
+	file4 << "let area = " << Area << ";";
 	file4.close();
 
-	ofstream file5("data/o.txt");
-	file5 << "let o = " << O << ";";
+	ofstream file5("data/cir.txt");
+	file5 << "let cir = " << C << ";";
 	file5.close();
 
 	ofstream file6("data/t.txt");
 	file6 << "let t = " << T << ";";
 	file6.close();
 
-	ofstream file7("data/k1.txt");
-	file7 << "let k1 = " << k1 << ";";
+	ofstream file7("data/a1.txt");
+	file7 << "let a1 = " << a1 << ";";
 	file7.close();
 
-	ofstream file8("data/k2.txt");
-	file8 << "let k2 = " << k2 << ";";
+	ofstream file8("data/a2.txt");
+	file8 << "let a2 = " << a2 << ";";
 	file8.close();
 }

@@ -1,1 +1,1 @@
-void SaveData(float a, float b, float c, float h, float Pole, float O, float k1, float k2, int T);
+void SaveData(float a, float b, float c, float h, float Area, float C, float a1, float a2, int T);
