@@ -17,8 +17,15 @@ float c;
 float option;
 
 void values() {
+    cout << "\n  ####";
+    cout << "\n     ##";
+    cout << "\n     ##";
+    cout << "\n  ####   SIDES OF TRIANGLE";
+    cout << "\n     ##";
+    cout << "\n     ##";
+    cout << "\n  ####";
 
-    cout << "Enter side a length: ";
+    cout << "\n\nEnter side a length: ";
 
     cin >> a;
 
@@ -26,7 +33,7 @@ void values() {
 
     cin >> b;
 
-    cout << "Side b length: ";
+    cout << "Side c length: ";
 
     cin >> c;
 
@@ -40,15 +47,20 @@ void values() {
     cin >> option;
 }
 
+void return1(int ms) {
+
+    cout.flush();
+    Sleep(ms);
+}
+
 void calculate() {
 
     cout << "\nCalculating...\n\n";
 
     if (a + b <= c || b + c <= a || a + c <= b) {
-        cout << "This triangle not exist! \n";
+        cout << "This triangle is not exist! \n\n";
 
-        cout.flush();
-        Sleep(5000);
+        return1(5000);
 
         return;
     }
@@ -124,8 +136,7 @@ void calculate() {
             cout << "This is isosceles triangle!";
         }
 
-        cout.flush();
-        Sleep(5000);
+        return1(5000);
 
         return;
     }
@@ -141,10 +152,9 @@ void calculate() {
 
         A2 = acos(Angle2);
 
-        cout << "Angles of this triangle are:" << A1 << ", " << A2 << ", " << 180 - A1 - A2 << std::endl;
+        cout << "Angles of this triangle are:" << A1 << ", " << A2 << ", " << 180 - A1 - A2 << std::endl << std::endl;
 
-        cout.flush();
-        Sleep(5000);
+        return1(5000);
 
         return;
     }
@@ -165,10 +175,11 @@ void calculate() {
 
         cout << "Height: " << h << "\n";
 
-        cout << "Area: " << Area << "\n";
+        //float Area1 = sqrt(((a + b + c) * (a + b) * (a + c) * (b + c)) / 16);
 
-        cout.flush();
-        Sleep(5000);
+        cout << "Area: " << Area << "\n\n";
+
+        return1(5000);
 
         return;
     }
@@ -179,10 +190,9 @@ void calculate() {
 
         C = a + b + c;
 
-        cout << "Circuit: " << C << "\n";
+        cout << "Circuit: " << C << "\n\n";
 
-        cout.flush();
-        Sleep(5000);
+        return1(5000);
 
         return;
     }
@@ -263,7 +273,7 @@ void calculate() {
         A1 = acos(Angle1);
 
         A2 = acos(Angle2);
-
+        
         //Area
 
         float Area;
@@ -290,8 +300,7 @@ void calculate() {
 
         SaveData(a, b, c, h, Area, C, A1, A2, T);
 
-        cout.flush();
-        Sleep(2000);
+        return1(2000);
 
         system("Visualisation.exe");
 
@@ -301,26 +310,21 @@ void calculate() {
     }
 
     if (option != 1 && option != 2 && option != 3 && option != 4 && option != 5) {
-        cout << "ERROR! \n Enter those intigers 1, 2, 3, 4 or 5\n";
+        cout << "ERROR! \n Enter those intigers: 1, 2, 3, 4 or 5\n\n";
 
-        cout.flush();
-        Sleep(3000);
+        return1(3000);
 
         return;
     }
 }
 
 int main() {
-    values();
-    calculate();
-    values();
-    calculate();
-    values();
-    calculate();
-    values();
-    calculate();
-    values();
-    calculate();
+
+    while(true) {
+        values();
+        cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+        calculate();
+    }
 
     system("pause>0");
 }

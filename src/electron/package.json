@@ -1,17 +1,18 @@
 {
-  "name": "3bokitrojkatawizualizacja",
+  "name": "3-sides-of-triangle",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "run": "electron ."
+    "run": "electron .",
+    "build": "electron-packager ."
   },
   "author": "Piotersky",
   "license": "ISC",
-  "dependencies": {
-    "@supercharge/fs": "^3.4.0"
-  },
   "devDependencies": {
     "electron": "^20.0.3"
+  },
+  "dependencies": {
+    "electron-packager": "^16.0.0"
   }
 }

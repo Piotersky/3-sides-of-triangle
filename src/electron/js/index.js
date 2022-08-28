@@ -1,16 +1,3 @@
-console.log(a);
-console.log(b);
-console.log(c);
-console.log(h);
-console.log(p);
-console.log(o);
-console.log(t);
-console.log(k1);
-console.log(k2);
-console.log(start)
-
-/****************************************************************/
-
 var canvasElement = document.querySelector("#myCanvas");
 var ctx = canvasElement.getContext("2d");
 
@@ -30,7 +17,7 @@ let Xa, Ya, Xb, Xc, Yc;
 
 Xa = 30;
 Ya = 480;
-Xb = a * scale;
+Xb = Xa + a;
 
 /****************************************************************/
 
@@ -40,15 +27,15 @@ let D = (Ya * -2) ** 2 - 4 * (Ya ** 2 - c ** 2 + Xc ** 2 - 2 * Xc * Xa + Xa ** 2
 
 Yc = (b * -1 - Math.sqrt(D)) / 2 * a;*/
 
-for (let ka = 0; ka < 360; ka++) {
-    console.log(ka);
-}
+let r = Xb ** 2 - 2 * Xa * Xb + Xa ** 2 + Xb ** 2 * ((Math.tan(a1) * (180 / Math.PI)) ** 2) - 2 * Xa * Xb * ((Math.tan(a1) * (180 / Math.PI)) ** 2) + Xa ** 2 * ((Math.tan(a1) * (180 / Math.PI)) ** 2);
 
-for (let kb = 0; kb < 360; kb++) {
-    console.log(kb);
-}
+console.log(r)
 
+let Fa = 1 + ((Math.tan(a1) * (180 / Math.PI)) ** 2);
+let Fb = Xa * -2 - 2 * Xb * ((Math.tan(a1) * (180 / Math.PI)) ** 2);
+let Fc = Xa ** 2 * (1 + ((Math.tan(a1) * (180 / Math.PI)) ** 2)); // -r
 
+console.log(Fa * Xb ** 2 + Fb * Xb + Fc)
 
 /****************************************************************/
 
@@ -57,7 +44,7 @@ Yc = 100;
 
 /****************************************************************/
 
-function boki() {
+function sides() {
 
     ctx.beginPath();
 
@@ -75,9 +62,10 @@ function boki() {
 
 /****************************************************************/
 
-console.log("P1: " + Xa + ", " + Ya);
-console.log("P2: " + Xb + ", " + Ya);
-console.log("P3: " + Xc + ", " + Yc);
+sides();
+
+ctx.fillStyle = "#FFCC00";
+ctx.fill();
 
 /****************************************************************/
 
@@ -94,8 +82,6 @@ if(Xb < Xc) {
 
 if(Xa > Xc) {
     ctx.fillText("c", (Xa - Xc) / 2 - 15, (Ya - Yc) / 2 + Yc + 10)
-
-    console.log((Xa - Xc) / 2, (Ya - Yc) / 2 + Yc + 10)
 }
 
 if(Xa < Xc) {
@@ -103,13 +89,6 @@ if(Xa < Xc) {
 }
 
 ctx.fillText("a", (Xb - Xa) / 2 - 10, Ya + 20)
-
-/****************************************************************/
-
-boki();
-
-ctx.fillStyle = "#FFCC00";
-ctx.fill();
 
 /****************************************************************/
 
@@ -140,9 +119,9 @@ ctx.fillText("γ", Xc + 5, Yc + 40)
 
 /****************************************************************/
 
-let k3 = 180 - k1 - k2;
+let a3 = 180 - a1 - a2;
 
-boki();
+sides();
 
 /****************************************************************/
 
@@ -166,25 +145,33 @@ if (t == 3) {
 
 /****************************************************************/
 
-let a1 = document.getElementById("a");
+let A1 = document.getElementById("a");
 let b1 = document.getElementById("b");
 let c1 = document.getElementById("c");
 let h1 = document.getElementById("h");
-let p1 = document.getElementById("p");
-let K1 = document.getElementById("k1");
-let K2 = document.getElementById("k2");
-let K3 = document.getElementById("k3");
-let czas = document.getElementById("czas");
+let p1 = document.getElementById("area");
+let cir1 = document.getElementById("cir");
+let K1 = document.getElementById("a1");
+let K2 = document.getElementById("a2");
+let K3 = document.getElementById("a3");
+let czas = document.getElementById("time");
 
 /****************************************************************/
 
-a1.textContent = "Długość boku a = " + a;
-b1.textContent = "Długość boku b = " + b;
+A1.textContent = "Długość boku a: " + a;
+b1.textContent = "Długość boku b: " + b;
 c1.textContent = "Długość boku c: " + c;
 h1.textContent = "Wysokość: " + h;
-p1.textContent = "Pole: " + p;
-K1.textContent = "Miara kąta α: " + k1 + "°";
-K2.textContent = "Miara kąta β: " + k2 + "°";
-K3.textContent = "Miara kąta γ: " + k3 + "°";
+p1.textContent = "Pole: " + area;
+cir1.textContent = "Circuit: " + cir;
+K1.textContent = "Miara kąta α: " + a1 + "°";
+K2.textContent = "Miara kąta β: " + a2 + "°";
+K3.textContent = "Miara kąta γ: " + a3 + "°";
 czas.textContent = "Czas generowania: " + (Date.now() - start) + " milisekund";
+
+/****************************************************************/
+
+console.log(Xa, Ya);
+console.log(Xb, Ya);
+console.log(Xc, Yc);
 

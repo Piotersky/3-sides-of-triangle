@@ -14,7 +14,7 @@ function createWindow() {
     win = new BrowserWindow({
         width: 900,
         height: 900,
-        title: 'Wizualizacja trójkąta',
+        title: 'Trinagle visualisation',
         webPreferences: {
             nodeIntegration: true, // is default value after Electron v5
             contextIsolation: false, // protect against prototype pollution
